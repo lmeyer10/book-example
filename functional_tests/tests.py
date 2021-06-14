@@ -86,6 +86,8 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no information
         ## of Edith's is coming through from cookies etc
         self.browser.quit()
+        options = Options()
+        options.binary_location = r"C:/Users/Owner/AppData/Local/Mozilla Firefox/firefox.exe"
         self.browser = webdriver.Firefox(options=options, executable_path="C:/Users/Owner/Documents/WEB 2210/geckodriver.exe")
 
         # Francis visits the home page. There is no sign of Edith's
