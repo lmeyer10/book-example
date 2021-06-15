@@ -4,3 +4,4 @@ virtualenv
 Comments.py
 __pycache__
 *.pyc
+/static
