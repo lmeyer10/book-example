@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -13,6 +14,9 @@ class NewVisitorTest(StaticLiveServerTestCase):
         options = Options()
         options.binary_location = r"C:/Users/Owner/AppData/Local/Mozilla Firefox/firefox.exe"
         self.browser = webdriver.Firefox(options=options, executable_path="C:/Users/Owner/Documents/WEB 2210/geckodriver.exe")
+        staging_server = os.environ.get('STAGING_SERVER')
+        if staging_server:
+            self.live_server_url = 'http://' + staging_server
 
     def tearDown(self):
         self.browser.quit()
